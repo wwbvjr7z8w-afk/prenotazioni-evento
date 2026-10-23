@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Educazione finanziaria in 2 ore – Prenota il tuo posto</title>
+<meta name="description" content="Domenica 25 ottobre, ore 16:00. Guardiamo insieme “Educazione finanziaria in 2 ore” di Giorgio Trabaldo. Prenota il tuo posto.">
+<meta property="og:title" content="Educazione finanziaria in 2 ore – Prenota il tuo posto">
+<meta property="og:description" content="Domenica 25 ottobre, ore 16:00. Prenota il tuo posto.">
+<meta property="og:image" content="/locandina.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎟️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..110,400..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#030B18; --bg-2:#071A33; --ink:#EAF6FF; --muted:#8DA7C2; --line:#16314F; --surface:#0A1A30;
+  --cyan:#1ED3F7; --cyan-deep:#0A8FB8; --danger:#FF8C7A;
+  color-scheme:dark; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;color:var(--ink);
+  background:radial-gradient(120% 60% at 50% 0%, #0B2A4D 0%, var(--bg) 60%) fixed, var(--bg);
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
+.hidden{display:none !important}
+
+.top{display:flex;justify-content:flex-end;padding:.9rem 1.25rem}
+.admin-link{background:none;border:0;padding:.25rem .4rem;font-size:.82rem;color:var(--muted);cursor:pointer;
+  text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line)}
+.admin-link:hover{color:var(--ink)}
+
+/* Pagina pubblica */
+.hero{display:flex;flex-direction:column;align-items:center;padding:0 1.25rem 3rem}
+.poster{width:min(100%,460px);border-radius:10px;overflow:hidden;
+  box-shadow:0 0 0 1px rgba(30,211,247,.25), 0 30px 80px -20px rgba(30,211,247,.35)}
+.poster img{display:block;width:100%;height:auto}
+.cta{margin-top:1.5rem;width:min(100%,460px);border:0;cursor:pointer;border-radius:999px;
+  background:var(--cyan);color:#021226;font-weight:850;font-stretch:105%;font-size:clamp(1.25rem,5vw,1.55rem);
+  padding:1.05rem 1.5rem;box-shadow:0 0 30px rgba(30,211,247,.45);transition:transform .15s ease, box-shadow .15s ease}
+.cta:hover{transform:translateY(-2px);box-shadow:0 0 44px rgba(30,211,247,.65)}
+.cta small{display:block;font-weight:600;font-size:.62em;opacity:.8}
+.info{margin:1rem 0 0;color:var(--muted);text-align:center;font-size:.95rem}
+
+/* Dialog */
+dialog{border:0;padding:0;border-radius:14px;width:min(92vw,430px);background:var(--surface);color:var(--ink);
+  box-shadow:0 0 0 1px var(--line), 0 30px 80px -10px rgba(0,0,0,.7)}
+dialog::backdrop{background:rgba(1,6,15,.75);backdrop-filter:blur(3px)}
+.dlg{padding:1.5rem}
+.dlg h2{margin:0 0 .25rem;font-weight:850;font-size:1.55rem;line-height:1.15}
+.sub{margin:0 0 1.25rem;color:var(--muted)}
+.field{display:block;margin-bottom:1rem}
+.field>span{display:block;font-weight:600;font-size:.92rem;margin-bottom:.3rem}
+.field input{width:100%;padding:.75rem .85rem;border:1.5px solid var(--line);border-radius:8px;background:var(--bg)}
+.field input:focus{border-color:var(--cyan);outline:none}
+.stepper{display:flex;align-items:center;gap:.75rem}
+.stepper button{width:2.7rem;height:2.7rem;border:1.5px solid var(--line);background:var(--bg);border-radius:8px;font-size:1.3rem;cursor:pointer}
+.stepper output{font-weight:850;font-size:1.45rem;min-width:2ch;text-align:center;font-variant-numeric:tabular-nums}
+.trap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.actions{display:flex;gap:.6rem;margin-top:1.25rem;flex-wrap:wrap}
+.btn{border:0;border-radius:999px;padding:.8rem 1.2rem;font-weight:700;cursor:pointer;text-align:center}
+.btn.primary{background:var(--cyan);color:#021226;flex:1}
+.btn.ghost{background:transparent;border:1.5px solid var(--line)}
+.btn[disabled]{opacity:.6;cursor:default}
+.err{color:var(--danger);font-size:.92rem;margin:.4rem 0 0;min-height:1.2em}
+.done-mark{width:3rem;height:3rem;border-radius:50%;background:var(--cyan);display:grid;place-items:center;margin-bottom:1rem}
+
+/* Admin */
+.admin-wrap{display:flex;justify-content:center;padding:0 1.25rem 3rem}
+.card{width:min(100%,420px);background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.5rem}
+.card h1{margin:0 0 .3rem;font-size:1.6rem;font-weight:850}
+.admin{width:min(100%,900px)}
+.admin header{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:1.5rem}
+.admin h1{margin:0;font-weight:900;font-size:clamp(2rem,6vw,2.6rem);line-height:1}
+.admin header p{margin:.35rem 0 0;color:var(--muted)}
+.head-actions{display:flex;gap:.5rem;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:1.5rem}
+.stat{background:var(--surface);padding:1rem 1.2rem}
+.stat b{display:block;font-size:2.4rem;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.stat.main b{color:var(--cyan)}
+.stat span{color:var(--muted);font-size:.9rem}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:1.5rem}
+.panel h2{margin:0;padding:1rem 1.2rem;font-size:1.05rem;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th,td{text-align:left;padding:.7rem 1.2rem;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-weight:600;color:var(--muted);font-size:.85rem}
+tr:last-child td{border-bottom:0}
+td.num{font-variant-numeric:tabular-nums;font-weight:700}
+.tag{font-size:.78rem;font-weight:600;padding:.12rem .5rem;border-radius:99px;background:var(--bg-2);color:var(--muted);margin-left:.4rem}
+.empty{padding:2rem 1.2rem;color:var(--muted)}
+.manual{display:grid;grid-template-columns:2fr 1.4fr .7fr auto;gap:.6rem;padding:1.2rem;align-items:end}
+.manual .field{margin:0}
+@media (max-width:700px){.manual{grid-template-columns:1fr 1fr}.manual .field.name,.manual .btn{grid-column:1/-1}}
+.small-btn{background:none;border:1.5px solid var(--line);border-radius:999px;padding:.3rem .7rem;font-size:.82rem;font-weight:600;cursor:pointer}
+.small-btn.confirm{color:var(--danger);border-color:currentColor}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+
+<div class="top"><button class="admin-link" id="adminLink" type="button">Area admin</button></div>
+
+<!-- Pagina pubblica -->
+<main id="publicView" class="hero">
+  <figure class="poster" style="margin:0">
+    <img src="locandina.jpg" width="941" height="1672"
+      alt="Locandina: Educazione finanziaria in 2 ore, Giorgio Trabaldo. Domenica 25 ottobre, inizio ore 16:00.">
+  </figure>
+  <button class="cta" id="ctaBtn" type="button">Prenota il tuo posto</button>
+  <p class="info">Domenica 25 ottobre, dalle 16:00 alle 18:00</p>
+</main>
+
+<!-- Area admin -->
+<main id="adminView" class="admin-wrap hidden">
+  <div class="card hidden" id="setupCard">
+    <h1>Crea la password</h1>
+    <p class="sub">È il primo accesso: scegli la password che userai per vedere le prenotazioni. Si imposta una volta sola.</p>
+    <form id="setupForm" novalidate>
+      <label class="field"><span>Password (almeno 6 caratteri)</span><input name="pw" type="password" autocomplete="new-password" minlength="6" required></label>
+      <label class="field"><span>Ripeti la password</span><input name="pw2" type="password" autocomplete="new-password" required></label>
+      <p class="err" id="setupErr"></p>
+      <div class="actions"><button class="btn ghost" type="button" data-back>Indietro</button><button class="btn primary" type="submit">Salva e entra</button></div>
+    </form>
+  </div>
+
+  <div class="card hidden" id="loginCard">
+    <h1>Area admin</h1>
+    <p class="sub">Inserisci la password per vedere l’elenco delle prenotazioni.</p>
+    <form id="loginForm" novalidate>
+      <label class="field"><span>Password</span><input name="pw" type="password" autocomplete="current-password" required></label>
+      <p class="err" id="loginErr"></p>
+      <div class="actions"><button class="btn ghost" type="button" data-back>Indietro</button><button class="btn primary" type="submit">Entra</button></div>
+    </form>
+  </div>
+
+  <div class="card hidden" id="loadingCard"><p class="sub" style="margin:0">Caricamento…</p></div>
+
+  <section class="admin hidden" id="adminPanel">
+    <header>
+      <div><h1>Prenotazioni</h1><p>Domenica 25 ottobre, 16:00–18:00</p></div>
+      <div class="head-actions">
+        <button class="btn ghost" id="refreshBtn" type="button">Aggiorna</button>
+        <button class="btn ghost" id="logoutBtn" type="button">Esci</button>
+        <button class="btn ghost" type="button" data-back>Torna alla locandina</button>
+      </div>
+    </header>
+    <div class="stats">
+      <div class="stat main"><b id="sSeats">0</b><span>posti prenotati</span></div>
+      <div class="stat"><b id="sCount">0</b><span>prenotazioni</span></div>
+    </div>
+    <div class="panel">
+      <h2>Elenco <button class="small-btn" id="copyBtn" type="button">Copia elenco</button></h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Nome</th><th>Telefono</th><th>Posti</th><th>Prenotato il</th><th></th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <div class="empty hidden" id="emptyRows">Ancora nessuna prenotazione. Condividi il link del sito per raccoglierle.</div>
+      <p class="err" id="listErr" style="padding:0 1.2rem;margin:0"></p>
+    </div>
+    <div class="panel">
+      <h2>Aggiungi una prenotazione ricevuta a voce o su WhatsApp</h2>
+      <form class="manual" id="manualForm" novalidate>
+        <label class="field name"><span>Nome e cognome</span><input name="name" maxlength="80" autocomplete="off" required></label>
+        <label class="field"><span>Telefono</span><input name="phone" type="tel" maxlength="30" autocomplete="off"></label>
+        <label class="field"><span>Posti</span><input name="seats" type="number" min="1" max="20" value="1"></label>
+        <button class="btn primary" type="submit">Aggiungi</button>
+      </form>
+      <p class="err" id="manualErr" style="padding:0 1.2rem 1rem;margin:0"></p>
+    </div>
+  </section>
+</main>
+
+<!-- Prenotazione -->
+<dialog id="bookDlg" aria-labelledby="bookTitle">
+  <div class="dlg" id="bookForm">
+    <h2 id="bookTitle">Prenota il tuo posto</h2>
+    <p class="sub">Domenica 25 ottobre, dalle 16:00 alle 18:00</p>
+    <form id="form" novalidate>
+      <label class="field"><span>Nome e cognome</span><input name="name" maxlength="80" autocomplete="name" required></label>
+      <label class="field"><span>Telefono (facoltativo)</span><input name="phone" type="tel" maxlength="30" autocomplete="tel"></label>
+      <label class="trap" aria-hidden="true">Sito web<input name="website" tabindex="-1" autocomplete="off"></label>
+      <div class="field"><span id="seatsLbl">Quanti posti</span>
+        <div class="stepper" role="group" aria-labelledby="seatsLbl">
+          <button type="button" id="minus" aria-label="Un posto in meno">−</button>
+          <output id="seatsOut" aria-live="polite">1</output>
+          <button type="button" id="plus" aria-label="Un posto in più">+</button>
+        </div>
+      </div>
+      <p class="err" id="formErr"></p>
+      <div class="actions">
+        <button class="btn ghost" type="button" data-close>Chiudi</button>
+        <button class="btn primary" type="submit" id="submitBtn">Conferma prenotazione</button>
+      </div>
+    </form>
+  </div>
+  <div class="dlg hidden" id="bookDone">
+    <div class="done-mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#021226" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div>
+    <h2>Ci vediamo domenica</h2>
+    <p class="sub" id="doneText"></p>
+    <div class="actions">
+      <button class="btn ghost" type="button" id="againBtn">Prenota per un’altra persona</button>
+      <button class="btn primary" type="button" data-close>Fatto</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const store = {
+  get(k){ try { return JSON.parse(localStorage.getItem(k)); } catch(e){ return null; } },
+  set(k,v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} },
+  sget(k){ try { return sessionStorage.getItem(k); } catch(e){ return null; } },
+  sset(k,v){ try { v == null ? sessionStorage.removeItem(k) : sessionStorage.setItem(k, v); } catch(e){} }
+};
+const seatsWord = (n) => n === 1 ? "1 posto" : n + " posti";
+
+async function api(path, body){
+  const res = await fetch(path, body === undefined ? { cache:"no-store" } :
+    { method:"POST", headers:{ "content-type":"application/json" }, body: JSON.stringify(body) });
+  let data = {}; try { data = await res.json(); } catch(e){}
+  if (!res.ok) { const err = new Error(data.error || "Errore di rete. Riprova."); err.status = res.status; throw err; }
+  return data;
+}
+
+document.querySelectorAll("[data-close]").forEach(b => b.addEventListener("click", () => b.closest("dialog").close()));
+
+/* ---------- Prenotazione ---------- */
+let seats = 1;
+function setSeats(n){ seats = Math.min(10, Math.max(1, n)); $("seatsOut").textContent = seats; }
+$("minus").onclick = () => setSeats(seats - 1);
+$("plus").onclick = () => setSeats(seats + 1);
+
+function renderCTA(){
+  const mine = store.get("miaPrenotazione");
+  $("ctaBtn").innerHTML = mine
+    ? "Hai già prenotato<small>" + seatsWord(mine.seats) + " a nome di " + mine.name.replace(/[<>&]/g,"") + "</small>"
+    : "Prenota il tuo posto";
+}
+function showPane(id){ ["bookForm","bookDone"].forEach(p => $(p).classList.toggle("hidden", p !== id)); }
+
+$("ctaBtn").onclick = () => {
+  const mine = store.get("miaPrenotazione");
+  if (mine){ showDone(mine); } else { resetForm(); showPane("bookForm"); }
+  $("bookDlg").showModal();
+};
+$("againBtn").onclick = () => { resetForm(); showPane("bookForm"); };
+function resetForm(){ $("form").reset(); setSeats(1); $("formErr").textContent = ""; }
+function showDone(b){
+  $("doneText").textContent = "Hai prenotato " + seatsWord(b.seats) + " a nome di " + b.name + ". Domenica 25 ottobre, inizio alle 16:00.";
+  showPane("bookDone");
+}
+
+$("form").addEventListener("submit", async (ev) => {
+  ev.preventDefault();
+  const f = ev.target;
+  const data = { name: f.name.value.trim(), phone: f.phone.value.trim(), seats, website: f.website.value };
+  if (!data.name){ $("formErr").textContent = "Scrivi nome e cognome per prenotare."; f.name.focus(); return; }
+  const btn = $("submitBtn"); btn.disabled = true; btn.textContent = "Invio…";
+  try {
+    await api("/api/prenota", data);
+    const mine = { name: data.name, seats: data.seats };
+    store.set("miaPrenotazione", mine); renderCTA(); showDone(mine);
+  } catch(e){ $("formErr").textContent = e.message || "Prenotazione non inviata. Riprova."; }
+  finally { btn.disabled = false; btn.textContent = "Conferma prenotazione"; }
+});
+renderCTA();
+
+/* ---------- Area admin ---------- */
+let rows = [];
+const cards = ["setupCard","loginCard","loadingCard","adminPanel"];
+function showCard(id){ cards.forEach(c => $(c).classList.toggle("hidden", c !== id)); }
+const pw = () => store.sget("adminPw");
+
+function showPublic(){
+  $("adminView").classList.add("hidden"); $("publicView").classList.remove("hidden"); $("adminLink").classList.remove("hidden");
+}
+async function openAdmin(){
+  $("publicView").classList.add("hidden"); $("adminView").classList.remove("hidden"); $("adminLink").classList.add("hidden");
+  showCard("loadingCard");
+  if (pw()){ try { await loadList(); showCard("adminPanel"); return; } catch(e){ store.sset("adminPw", null); } }
+  try {
+    const s = await api("/api/admin");
+    showCard(s.configured ? "loginCard" : "setupCard");
+    setTimeout(() => $(s.configured ? "loginForm" : "setupForm").pw.focus(), 50);
+  } catch(e){ showCard("loginCard"); $("loginErr").textContent = "Servizio non raggiungibile. Ricarica la pagina."; }
+}
+$("adminLink").onclick = () => { location.hash = "admin"; };
+document.querySelectorAll("[data-back]").forEach(b => b.addEventListener("click", () => { history.replaceState(null,"",location.pathname); showPublic(); }));
+window.addEventListener("hashchange", route);
+function route(){ location.hash === "#admin" ? openAdmin() : showPublic(); }
+
+$("setupForm").addEventListener("submit", async (ev) => {
+  ev.preventDefault(); const f = ev.target; $("setupErr").textContent = "";
+  if (f.pw.value.length < 6){ $("setupErr").textContent = "La password deve avere almeno 6 caratteri."; return; }
+  if (f.pw.value !== f.pw2.value){ $("setupErr").textContent = "Le due password non coincidono."; return; }
+  try {
+    await api("/api/admin", { action:"setup", password:f.pw.value });
+    store.sset("adminPw", f.pw.value); f.reset();
+    await loadList(); showCard("adminPanel");
+  } catch(e){
+    if (e.status === 409){ showCard("loginCard"); $("loginErr").textContent = "La password è già stata impostata: inseriscila per entrare."; }
+    else $("setupErr").textContent = e.message;
+  }
+});
+
+$("loginForm").addEventListener("submit", async (ev) => {
+  ev.preventDefault(); const f = ev.target; $("loginErr").textContent = "";
+  try {
+    await api("/api/admin", { action:"login", password:f.pw.value });
+    store.sset("adminPw", f.pw.value); f.reset();
+    await loadList(); showCard("adminPanel");
+  } catch(e){ $("loginErr").textContent = e.message; f.pw.select(); }
+});
+
+$("logoutBtn").onclick = () => { store.sset("adminPw", null); rows = []; showCard("loginCard"); };
+$("refreshBtn").onclick = async () => {
+  const b = $("refreshBtn"); b.disabled = true;
+  try { await loadList(); } catch(e){ $("listErr").textContent = e.message; } finally { b.disabled = false; }
+};
+
+async function loadList(){
+  const data = await api("/api/admin", { action:"list", password: pw() });
+  rows = data.items || []; $("listErr").textContent = ""; renderRows();
+}
+
+function fmtDate(iso){
+  try { return new Date(iso).toLocaleString("it-IT", { day:"numeric", month:"short", hour:"2-digit", minute:"2-digit" }); } catch(e){ return ""; }
+}
+
+function renderRows(){
+  const tb = $("rows"); tb.innerHTML = ""; let tot = 0;
+  rows.forEach((r, i) => {
+    const n = Number(r.seats) || 0; tot += n;
+    const tr = document.createElement("tr");
+    const add = (txt, cls) => { const td = document.createElement("td"); if (cls) td.className = cls; td.textContent = txt; tr.append(td); return td; };
+    add(String(i + 1));
+    const nameTd = add(r.name || "—");
+    if (r.source === "manuale"){ const t = document.createElement("span"); t.className = "tag"; t.textContent = "a mano"; nameTd.append(t); }
+    add(r.phone || "—"); add(String(n), "num"); add(fmtDate(r.createdAt));
+    const td = document.createElement("td"); const b = document.createElement("button");
+    b.type = "button"; b.className = "small-btn"; b.textContent = "Elimina";
+    b.onclick = async () => {
+      if (!b.classList.contains("confirm")){ b.classList.add("confirm"); b.textContent = "Conferma"; setTimeout(() => { b.classList.remove("confirm"); b.textContent = "Elimina"; }, 4000); return; }
+      b.disabled = true;
+      try { await api("/api/admin", { action:"delete", id:r.id, password: pw() }); rows = rows.filter(x => x.id !== r.id); renderRows(); }
+      catch(e){ b.disabled = false; b.textContent = "Riprova"; }
+    };
+    td.append(b); tr.append(td); tb.append(tr);
+  });
+  $("sSeats").textContent = tot; $("sCount").textContent = rows.length;
+  $("emptyRows").classList.toggle("hidden", rows.length > 0);
+}
+
+$("manualForm").addEventListener("submit", async (ev) => {
+  ev.preventDefault(); const f = ev.target; const name = f.name.value.trim();
+  if (!name){ $("manualErr").textContent = "Inserisci almeno il nome."; return; }
+  try {
+    const d = await api("/api/admin", { action:"add", name, phone:f.phone.value.trim(), seats:f.seats.value, password: pw() });
+    rows.push(d.booking); renderRows(); f.reset(); f.seats.value = 1; $("manualErr").textContent = "";
+  } catch(e){ $("manualErr").textContent = e.message; }
+});
+
+$("copyBtn").onclick = async () => {
+  const tot = rows.reduce((s, r) => s + (Number(r.seats) || 0), 0);
+  const text = "Educazione finanziaria in 2 ore – domenica 25 ottobre, ore 16:00\n" +
+    rows.map((r, i) => `${i + 1}. ${r.name} – ${seatsWord(Number(r.seats) || 0)}${r.phone ? " – " + r.phone : ""}`).join("\n") +
+    `\nTotale: ${seatsWord(tot)}`;
+  const btn = $("copyBtn");
+  try { await navigator.clipboard.writeText(text); btn.textContent = "Copiato"; }
+  catch(e){
+    const ta = document.createElement("textarea"); ta.value = text; document.body.append(ta); ta.select();
+    try { document.execCommand("copy"); btn.textContent = "Copiato"; } catch(_){ btn.textContent = "Copia non riuscita"; }
+    ta.remove();
+  }
+  setTimeout(() => btn.textContent = "Copia elenco", 2000);
+};
+
+route();
+</script>
+</body>
+</html>
